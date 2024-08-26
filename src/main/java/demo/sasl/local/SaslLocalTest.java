@@ -1,6 +1,9 @@
 package demo.sasl.local;
 
+import demo.sasl.client.SaslClientDebug;
 import demo.sasl.client.SaslClientTest;
+import demo.sasl.did.DidSaslProvider;
+import demo.sasl.server.SaslServerDebug;
 import demo.sasl.server.SaslServerTest;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -8,15 +11,19 @@ import org.apache.logging.log4j.Logger;
 import javax.security.sasl.SaslClient;
 import javax.security.sasl.SaslException;
 import javax.security.sasl.SaslServer;
+import java.security.Security;
 
 public class SaslLocalTest {
 
     private static final Logger log = LogManager.getLogger(SaslLocalTest.class);
 
-    public static void main(String[] args) throws SaslException {
-        //SaslServerTest.logSaslServerFactoriesAndMechanisms();
-        //SaslClientTest.logSaslClientFactoriesAndMechanisms();
+    static {
+        Security.addProvider(new DidSaslProvider());
+        SaslServerDebug.logSaslServerFactoriesAndMechanisms();
+        SaslClientDebug.logSaslClientFactoriesAndMechanisms();
+    }
 
+    public static void main(String[] args) throws SaslException {
         SaslServer saslServer = SaslServerTest.createSaslServer();
         SaslClient saslClient = SaslClientTest.createSaslClient();
 
