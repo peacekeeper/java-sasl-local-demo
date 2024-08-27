@@ -1,10 +1,10 @@
 package demo.sasl.local;
 
-import demo.sasl.client.debug.SaslClientDebug;
-import demo.sasl.client.SaslClientTest;
-import demo.sasl.did.DidSaslProvider;
+import sasl.xmpp.client.debug.SaslClientDebug;
+import sasl.xmpp.client.SimpleSaslClientDemo;
+import sasl.did.mechanism.DidSaslProvider;
 import demo.sasl.server.debug.SaslServerDebug;
-import demo.sasl.server.SaslServerTest;
+import demo.sasl.server.SimpleSaslServerDemo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -24,8 +24,8 @@ public class SaslLocalTest {
     }
 
     public static void main(String[] args) throws SaslException {
-        SaslServer saslServer = SaslServerTest.createSaslServer();
-        SaslClient saslClient = SaslClientTest.createSaslClient();
+        SaslServer saslServer = SimpleSaslServerDemo.createSaslServer();
+        SaslClient saslClient = SimpleSaslClientDemo.createSaslClient();
 
         int i = 0;
         byte[] challenge = new byte[0];

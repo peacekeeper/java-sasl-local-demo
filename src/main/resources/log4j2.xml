@@ -27,6 +27,7 @@
 		</Root>
 
 		<Logger name="demo.sasl" level="debug"/>
+		<Logger name="sasl.did" level="debug"/>
 	</Loggers>
 
 </Configuration>
