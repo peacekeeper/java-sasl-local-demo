@@ -1,0 +1,70 @@
+# java-sasl-local-demo
+
+This repository is one component of the project "Securing Internet protocols with DIDs, using SASL",
+see https://github.com/peacekeeper/did-based-sasl for an overview and list of all components.
+
+## Description
+
+This is an executable SASL "Hello World" demonstration. It simulates a SASL client-side component and a server-side
+component.
+
+Two versions of the "Hello World" demonstration are provided, using two SASL authentication mechanisms:
+
+- The more traditional `CRAM-MD5` mechanism, specified by [RFC2195](https://www.rfc-editor.org/rfc/rfc2195.html).
+- The DID-based `DID-CHALLENGE` mechanism, described and implemented in https://github.com/peacekeeper/java-sasl-did-mechanism.
+
+### Demonstration using the `CRAM-MD5` mechanism
+
+A typical interaction using this mechanism looks like this:
+
+```
+INFO  [main] d.s.s.SimpleSaslServerDemo: SASL server created: com.sun.security.sasl.CramMD5Server@611889f4
+INFO  [main] d.s.l.SaslLocalTest: server complete: false
+DEBUG [main] d.s.l.SaslLocalTest: server challenge 1: [60, 51, 48, 55, 52, 52, 55, 57, 50, 50, 54, 54, 50, 51, 56, 51, 55, 56, 53, 49, 46, 49, 55, 50, 52, 55, 57, 54, 51, 57, 52, 54, 57, 48, 64, 108, 111, 99, 97, 108, 104, 111, 115, 116, 62]
+INFO  [main] d.s.l.SaslLocalTest: client complete: true
+DEBUG [main] d.s.l.SaslLocalTest: client response 1: [117, 115, 101, 114, 110, 97, 109, 101, 32, 101, 101, 55, 102, 50, 98, 97, 102, 53, 102, 52, 50, 49, 51, 48, 49, 49, 57, 102, 55, 53, 51, 98, 99, 54, 48, 51, 54, 102, 99, 98, 54]
+DEBUG [main] d.s.s.SimpleSaslServerCallbackHandler: Callback: javax.security.auth.callback.NameCallback@66d3eec0
+INFO  [main] d.s.s.SimpleSaslServerCallbackHandler: prompt: CRAM-MD5 authentication ID: , name: null, defaultName: username
+DEBUG [main] d.s.s.SimpleSaslServerCallbackHandler: Callback: javax.security.auth.callback.PasswordCallback@1e04fa0a
+INFO  [main] d.s.s.SimpleSaslServerCallbackHandler: prompt: CRAM-MD5 password: , password: null
+DEBUG [main] d.s.s.SimpleSaslServerCallbackHandler: Callback: javax.security.sasl.AuthorizeCallback@18d87d80
+INFO  [main] d.s.s.SimpleSaslServerCallbackHandler: authenticationID: username, authorizationID: username, authorizedID: null, isAuthorized: false
+INFO  [main] d.s.l.SaslLocalTest: server complete: true
+DEBUG [main] d.s.l.SaslLocalTest: server challenge 2: null
+INFO  [main] d.s.l.SaslLocalTest: server authorizationId: username
+```
+
+### Demonstration using the `DID-CHALLENGE` mechanism
+
+A typical interaction using this mechanism looks like this:
+
+```
+INFO  [main] d.s.s.d.DidSaslServerDemo: SASL server created: sasl.did.mechanism.server.DidSaslServer@5d7148e2
+DEBUG [main] s.d.m.s.DidSaslServer: Generated challenge: <-3832670409116688217.1724796458568@localhost>
+INFO  [main] d.s.l.DidSaslLocalTest: server complete: false
+DEBUG [main] d.s.l.DidSaslLocalTest: server challenge 1: [60, 45, 51, 56, 51, 50, 54, 55, 48, 52, 48, 57, 49, 49, 54, 54, 56, 56, 50, 49, 55, 46, 49, 55, 50, 52, 55, 57, 54, 52, 53, 56, 53, 54, 56, 64, 108, 111, 99, 97, 108, 104, 111, 115, 116, 62]
+DEBUG [main] s.d.m.c.DidSaslClient: Received challenge: <-3832670409116688217.1724796458568@localhost>
+DEBUG [main] s.d.m.c.DidSaslClient: Sending response: did:key:z6MkeretqUG21CE9bwUNE6vfpnxRZxALZP2qfsApZDdbjcAC pS9LawFHBGKZvAY1sP5MvgyJUTeXWQQr9KMK8nZyBa4iTAMAXnwLDRp87CvGXbtPs7c3RQxD4netbyJjXVsSy1Y
+INFO  [main] d.s.l.DidSaslLocalTest: client complete: true
+DEBUG [main] d.s.l.DidSaslLocalTest: client response 1: [100, 105, 100, 58, 107, 101, 121, 58, 122, 54, 77, 107, 101, 114, 101, 116, 113, 85, 71, 50, 49, 67, 69, 57, 98, 119, 85, 78, 69, 54, 118, 102, 112, 110, 120, 82, 90, 120, 65, 76, 90, 80, 50, 113, 102, 115, 65, 112, 90, 68, 100, 98, 106, 99, 65, 67, 32, 112, 83, 57, 76, 97, 119, 70, 72, 66, 71, 75, 90, 118, 65, 89, 49, 115, 80, 53, 77, 118, 103, 121, 74, 85, 84, 101, 88, 87, 81, 81, 114, 57, 75, 77, 75, 56, 110, 90, 121, 66, 97, 52, 105, 84, 65, 77, 65, 88, 110, 119, 76, 68, 82, 112, 56, 55, 67, 118, 71, 88, 98, 116, 80, 115, 55, 99, 51, 82, 81, 120, 68, 52, 110, 101, 116, 98, 121, 74, 106, 88, 86, 115, 83, 121, 49, 89]
+DEBUG [main] s.d.m.s.DidSaslServer: Received response: did:key:z6MkeretqUG21CE9bwUNE6vfpnxRZxALZP2qfsApZDdbjcAC pS9LawFHBGKZvAY1sP5MvgyJUTeXWQQr9KMK8nZyBa4iTAMAXnwLDRp87CvGXbtPs7c3RQxD4netbyJjXVsSy1Y
+DEBUG [main] s.d.m.s.DidSaslServer: Extracted DID: did:key:z6MkeretqUG21CE9bwUNE6vfpnxRZxALZP2qfsApZDdbjcAC
+DEBUG [main] d.s.s.d.DidSaslServerCallbackHandler: Callback: javax.security.auth.callback.NameCallback@51c668e3
+INFO  [main] d.s.s.d.DidSaslServerCallbackHandler: prompt: SASL authentication ID: , name: null, defaultName: did:key:z6MkeretqUG21CE9bwUNE6vfpnxRZxALZP2qfsApZDdbjcAC
+DEBUG [main] d.s.s.d.DidSaslServerCallbackHandler: Callback: javax.security.sasl.AuthorizeCallback@22175d4f
+INFO  [main] d.s.s.d.DidSaslServerCallbackHandler: authenticationID: did:key:z6MkeretqUG21CE9bwUNE6vfpnxRZxALZP2qfsApZDdbjcAC, authorizationID: did:key:z6MkeretqUG21CE9bwUNE6vfpnxRZxALZP2qfsApZDdbjcAC, authorizedID: null, isAuthorized: false
+DEBUG [main] s.d.m.s.DidSaslServer: authorizationId: did:key:z6MkeretqUG21CE9bwUNE6vfpnxRZxALZP2qfsApZDdbjcAC
+INFO  [main] d.s.l.DidSaslLocalTest: server complete: true
+DEBUG [main] d.s.l.DidSaslLocalTest: server challenge 2: null
+INFO  [main] d.s.l.DidSaslLocalTest: server authorizationId: did:key:z6MkeretqUG21CE9bwUNE6vfpnxRZxALZP2qfsApZDdbjcAC
+```
+
+## About
+
+Markus Sabadello - https://github.com/peacekeeper/
+
+<img align="left" height="40" src="https://github.com/peacekeeper/did-based-sasl/blob/main/docs/logo-ngi-assure.png?raw=true">
+
+This project has received financial support from NLnet and the NGI Assure fund. NGI Assure was established with
+financial support from the European Commission's Next Generation Internet programme, under the aegis of DG
+Communications Networks, Content and Technology.
