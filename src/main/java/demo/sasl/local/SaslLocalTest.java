@@ -1,12 +1,12 @@
 package demo.sasl.local;
 
-import sasl.xmpp.client.debug.SaslClientDebug;
-import sasl.xmpp.client.SimpleSaslClientDemo;
-import sasl.did.mechanism.DidSaslProvider;
-import demo.sasl.server.debug.SaslServerDebug;
+import demo.sasl.client.SimpleSaslClientDemo;
+import demo.sasl.client.debug.SaslClientDebug;
 import demo.sasl.server.SimpleSaslServerDemo;
+import demo.sasl.server.debug.SaslServerDebug;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import sasl.did.mechanism.DidSaslProvider;
 
 import javax.security.sasl.SaslClient;
 import javax.security.sasl.SaslException;
