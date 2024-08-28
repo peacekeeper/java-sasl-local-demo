@@ -18,16 +18,21 @@ Two versions of the "Hello World" demonstration are provided, using two SASL aut
 A typical interaction using this mechanism looks like this:
 
 ```
-INFO  [main] d.s.s.SimpleSaslServerDemo: SASL server created: com.sun.security.sasl.CramMD5Server@611889f4
+INFO  [main] d.s.s.SimpleSaslServerDemo: SASL server created: com.sun.security.sasl.CramMD5Server@7c24b813
+DEBUG [main] d.s.c.SimpleSaslClientCallbackHandler: Callback: javax.security.auth.callback.NameCallback@74751b3
+INFO  [main] d.s.c.SimpleSaslClientCallbackHandler: prompt: CRAM-MD5 authentication id: , name: null, defaultName: null
+DEBUG [main] d.s.c.SimpleSaslClientCallbackHandler: Callback: javax.security.auth.callback.PasswordCallback@741a8937
+INFO  [main] d.s.c.SimpleSaslClientCallbackHandler: prompt: CRAM-MD5 password: , password: null
+INFO  [main] d.s.c.SimpleSaslClientDemo: SASL client created: com.sun.security.sasl.CramMD5Client@4f2b503c
 INFO  [main] d.s.l.SaslLocalTest: server complete: false
-DEBUG [main] d.s.l.SaslLocalTest: server challenge 1: [60, 51, 48, 55, 52, 52, 55, 57, 50, 50, 54, 54, 50, 51, 56, 51, 55, 56, 53, 49, 46, 49, 55, 50, 52, 55, 57, 54, 51, 57, 52, 54, 57, 48, 64, 108, 111, 99, 97, 108, 104, 111, 115, 116, 62]
+DEBUG [main] d.s.l.SaslLocalTest: server challenge 1: [60, 55, 53, 55, 52, 53, 54, 49, 51, 56, 54, 54, 51, 48, 52, 52, 52, 48, 54, 46, 49, 55, 50, 52, 56, 54, 56, 55, 55, 50, 49, 48, 52, 64, 108, 111, 99, 97, 108, 104, 111, 115, 116, 62]
 INFO  [main] d.s.l.SaslLocalTest: client complete: true
-DEBUG [main] d.s.l.SaslLocalTest: client response 1: [117, 115, 101, 114, 110, 97, 109, 101, 32, 101, 101, 55, 102, 50, 98, 97, 102, 53, 102, 52, 50, 49, 51, 48, 49, 49, 57, 102, 55, 53, 51, 98, 99, 54, 48, 51, 54, 102, 99, 98, 54]
-DEBUG [main] d.s.s.SimpleSaslServerCallbackHandler: Callback: javax.security.auth.callback.NameCallback@66d3eec0
+DEBUG [main] d.s.l.SaslLocalTest: client response 1: [117, 115, 101, 114, 110, 97, 109, 101, 32, 97, 56, 53, 49, 97, 51, 50, 54, 54, 97, 55, 100, 97, 102, 49, 99, 99, 56, 99, 52, 52, 56, 48, 57, 102, 57, 98, 99, 51, 97, 101, 100]
+DEBUG [main] d.s.s.SimpleSaslServerCallbackHandler: Callback: javax.security.auth.callback.NameCallback@e15b7e8
 INFO  [main] d.s.s.SimpleSaslServerCallbackHandler: prompt: CRAM-MD5 authentication ID: , name: null, defaultName: username
-DEBUG [main] d.s.s.SimpleSaslServerCallbackHandler: Callback: javax.security.auth.callback.PasswordCallback@1e04fa0a
+DEBUG [main] d.s.s.SimpleSaslServerCallbackHandler: Callback: javax.security.auth.callback.PasswordCallback@1b2abca6
 INFO  [main] d.s.s.SimpleSaslServerCallbackHandler: prompt: CRAM-MD5 password: , password: null
-DEBUG [main] d.s.s.SimpleSaslServerCallbackHandler: Callback: javax.security.sasl.AuthorizeCallback@18d87d80
+DEBUG [main] d.s.s.SimpleSaslServerCallbackHandler: Callback: javax.security.sasl.AuthorizeCallback@2ed2d9cb
 INFO  [main] d.s.s.SimpleSaslServerCallbackHandler: authenticationID: username, authorizationID: username, authorizedID: null, isAuthorized: false
 INFO  [main] d.s.l.SaslLocalTest: server complete: true
 DEBUG [main] d.s.l.SaslLocalTest: server challenge 2: null
