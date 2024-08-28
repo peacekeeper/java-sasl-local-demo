@@ -40,18 +40,23 @@ A typical interaction using this mechanism looks like this:
 
 ```
 INFO  [main] d.s.s.d.DidSaslServerDemo: SASL server created: sasl.did.mechanism.server.DidSaslServer@5d7148e2
-DEBUG [main] s.d.m.s.DidSaslServer: Generated challenge: <-3832670409116688217.1724796458568@localhost>
+DEBUG [main] d.s.c.d.DidSaslClientCallbackHandler: Callback: javax.security.auth.callback.NameCallback@5ba3f27a
+INFO  [main] d.s.c.d.DidSaslClientCallbackHandler: prompt: DID: , name: null, defaultName: null
+DEBUG [main] d.s.c.d.DidSaslClientCallbackHandler: Callback: javax.security.auth.callback.TextInputCallback@58d75e99
+INFO  [main] d.s.c.d.DidSaslClientCallbackHandler: prompt: Private key: , text: null, defaultText: (base58 encoded)
+INFO  [main] d.s.c.d.DidSaslClientDemo: SASL client created: sasl.did.mechanism.client.DidSaslClient@2ed2d9cb
+DEBUG [main] s.d.m.s.DidSaslServer: Generated challenge: <1809528678543235072.1724868615672@localhost>
 INFO  [main] d.s.l.DidSaslLocalTest: server complete: false
-DEBUG [main] d.s.l.DidSaslLocalTest: server challenge 1: [60, 45, 51, 56, 51, 50, 54, 55, 48, 52, 48, 57, 49, 49, 54, 54, 56, 56, 50, 49, 55, 46, 49, 55, 50, 52, 55, 57, 54, 52, 53, 56, 53, 54, 56, 64, 108, 111, 99, 97, 108, 104, 111, 115, 116, 62]
-DEBUG [main] s.d.m.c.DidSaslClient: Received challenge: <-3832670409116688217.1724796458568@localhost>
-DEBUG [main] s.d.m.c.DidSaslClient: Sending response: did:key:z6MkeretqUG21CE9bwUNE6vfpnxRZxALZP2qfsApZDdbjcAC pS9LawFHBGKZvAY1sP5MvgyJUTeXWQQr9KMK8nZyBa4iTAMAXnwLDRp87CvGXbtPs7c3RQxD4netbyJjXVsSy1Y
+DEBUG [main] d.s.l.DidSaslLocalTest: server challenge 1: [60, 49, 56, 48, 57, 53, 50, 56, 54, 55, 56, 53, 52, 51, 50, 51, 53, 48, 55, 50, 46, 49, 55, 50, 52, 56, 54, 56, 54, 49, 53, 54, 55, 50, 64, 108, 111, 99, 97, 108, 104, 111, 115, 116, 62]
+DEBUG [main] s.d.m.c.DidSaslClient: Received challenge: <1809528678543235072.1724868615672@localhost>
+DEBUG [main] s.d.m.c.DidSaslClient: Sending response: did:key:z6MkeretqUG21CE9bwUNE6vfpnxRZxALZP2qfsApZDdbjcAC 2mJ4tBo6HBg7p3kFgV9MNECcUCXrRCmcJcHJYo6xEDUZSBmf9VqFQgzCraQ4eHyPka6Hh13Yt4ng5udacPz3M9mB
 INFO  [main] d.s.l.DidSaslLocalTest: client complete: true
-DEBUG [main] d.s.l.DidSaslLocalTest: client response 1: [100, 105, 100, 58, 107, 101, 121, 58, 122, 54, 77, 107, 101, 114, 101, 116, 113, 85, 71, 50, 49, 67, 69, 57, 98, 119, 85, 78, 69, 54, 118, 102, 112, 110, 120, 82, 90, 120, 65, 76, 90, 80, 50, 113, 102, 115, 65, 112, 90, 68, 100, 98, 106, 99, 65, 67, 32, 112, 83, 57, 76, 97, 119, 70, 72, 66, 71, 75, 90, 118, 65, 89, 49, 115, 80, 53, 77, 118, 103, 121, 74, 85, 84, 101, 88, 87, 81, 81, 114, 57, 75, 77, 75, 56, 110, 90, 121, 66, 97, 52, 105, 84, 65, 77, 65, 88, 110, 119, 76, 68, 82, 112, 56, 55, 67, 118, 71, 88, 98, 116, 80, 115, 55, 99, 51, 82, 81, 120, 68, 52, 110, 101, 116, 98, 121, 74, 106, 88, 86, 115, 83, 121, 49, 89]
-DEBUG [main] s.d.m.s.DidSaslServer: Received response: did:key:z6MkeretqUG21CE9bwUNE6vfpnxRZxALZP2qfsApZDdbjcAC pS9LawFHBGKZvAY1sP5MvgyJUTeXWQQr9KMK8nZyBa4iTAMAXnwLDRp87CvGXbtPs7c3RQxD4netbyJjXVsSy1Y
+DEBUG [main] d.s.l.DidSaslLocalTest: client response 1: [100, 105, 100, 58, 107, 101, 121, 58, 122, 54, 77, 107, 101, 114, 101, 116, 113, 85, 71, 50, 49, 67, 69, 57, 98, 119, 85, 78, 69, 54, 118, 102, 112, 110, 120, 82, 90, 120, 65, 76, 90, 80, 50, 113, 102, 115, 65, 112, 90, 68, 100, 98, 106, 99, 65, 67, 32, 50, 109, 74, 52, 116, 66, 111, 54, 72, 66, 103, 55, 112, 51, 107, 70, 103, 86, 57, 77, 78, 69, 67, 99, 85, 67, 88, 114, 82, 67, 109, 99, 74, 99, 72, 74, 89, 111, 54, 120, 69, 68, 85, 90, 83, 66, 109, 102, 57, 86, 113, 70, 81, 103, 122, 67, 114, 97, 81, 52, 101, 72, 121, 80, 107, 97, 54, 72, 104, 49, 51, 89, 116, 52, 110, 103, 53, 117, 100, 97, 99, 80, 122, 51, 77, 57, 109, 66]
+DEBUG [main] s.d.m.s.DidSaslServer: Received response: did:key:z6MkeretqUG21CE9bwUNE6vfpnxRZxALZP2qfsApZDdbjcAC 2mJ4tBo6HBg7p3kFgV9MNECcUCXrRCmcJcHJYo6xEDUZSBmf9VqFQgzCraQ4eHyPka6Hh13Yt4ng5udacPz3M9mB
 DEBUG [main] s.d.m.s.DidSaslServer: Extracted DID: did:key:z6MkeretqUG21CE9bwUNE6vfpnxRZxALZP2qfsApZDdbjcAC
-DEBUG [main] d.s.s.d.DidSaslServerCallbackHandler: Callback: javax.security.auth.callback.NameCallback@51c668e3
+DEBUG [main] d.s.s.d.DidSaslServerCallbackHandler: Callback: javax.security.auth.callback.NameCallback@52719fb6
 INFO  [main] d.s.s.d.DidSaslServerCallbackHandler: prompt: SASL authentication ID: , name: null, defaultName: did:key:z6MkeretqUG21CE9bwUNE6vfpnxRZxALZP2qfsApZDdbjcAC
-DEBUG [main] d.s.s.d.DidSaslServerCallbackHandler: Callback: javax.security.sasl.AuthorizeCallback@22175d4f
+DEBUG [main] d.s.s.d.DidSaslServerCallbackHandler: Callback: javax.security.sasl.AuthorizeCallback@3b0f7d9d
 INFO  [main] d.s.s.d.DidSaslServerCallbackHandler: authenticationID: did:key:z6MkeretqUG21CE9bwUNE6vfpnxRZxALZP2qfsApZDdbjcAC, authorizationID: did:key:z6MkeretqUG21CE9bwUNE6vfpnxRZxALZP2qfsApZDdbjcAC, authorizedID: null, isAuthorized: false
 DEBUG [main] s.d.m.s.DidSaslServer: authorizationId: did:key:z6MkeretqUG21CE9bwUNE6vfpnxRZxALZP2qfsApZDdbjcAC
 INFO  [main] d.s.l.DidSaslLocalTest: server complete: true
