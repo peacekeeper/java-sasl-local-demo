@@ -15,9 +15,9 @@ import javax.security.sasl.SaslException;
 import javax.security.sasl.SaslServer;
 import java.security.Security;
 
-public class CramMD5SaslLocalTest {
+public class CramMD5SaslLocalDemo {
 
-    private static final Logger log = LogManager.getLogger(CramMD5SaslLocalTest.class);
+    private static final Logger log = LogManager.getLogger(CramMD5SaslLocalDemo.class);
 
     static {
         Security.addProvider(new DIDChallengeSaslProvider());

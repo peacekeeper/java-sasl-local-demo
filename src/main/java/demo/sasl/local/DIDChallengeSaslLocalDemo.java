@@ -15,9 +15,9 @@ import javax.security.sasl.SaslException;
 import javax.security.sasl.SaslServer;
 import java.security.Security;
 
-public class DIDChallengeSaslLocalTest {
+public class DIDChallengeSaslLocalDemo {
 
-    private static final Logger log = LogManager.getLogger(DIDChallengeSaslLocalTest.class);
+    private static final Logger log = LogManager.getLogger(DIDChallengeSaslLocalDemo.class);
 
     static {
         Security.addProvider(new DIDChallengeSaslProvider());
