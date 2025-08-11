@@ -44,12 +44,12 @@ INFO  [main] d.s.l.SaslLocalTest: server authorizationId: username
 A typical interaction using this mechanism looks like this:
 
 ```
-INFO  [main] d.s.s.d.DidSaslServerDemo: SASL server created: sasl.did.mechanism.server.DidSaslServer@5d7148e2
+INFO  [main] d.s.s.d.DidSaslServerDemo: SASL server created: server.sasl.mechanism.did.DIDChallengeSaslServer@5d7148e2
 DEBUG [main] d.s.c.d.DidSaslClientCallbackHandler: Callback: javax.security.auth.callback.NameCallback@5ba3f27a
 INFO  [main] d.s.c.d.DidSaslClientCallbackHandler: prompt: DID: , name: null, defaultName: null
 DEBUG [main] d.s.c.d.DidSaslClientCallbackHandler: Callback: javax.security.auth.callback.TextInputCallback@58d75e99
 INFO  [main] d.s.c.d.DidSaslClientCallbackHandler: prompt: Private key: , text: null, defaultText: (base58 encoded)
-INFO  [main] d.s.c.d.DidSaslClientDemo: SASL client created: sasl.did.mechanism.client.DidSaslClient@2ed2d9cb
+INFO  [main] d.s.c.d.DidSaslClientDemo: SASL client created: client.sasl.mechanism.did.DIDChallengeSaslClient@2ed2d9cb
 DEBUG [main] s.d.m.s.DidSaslServer: Generated challenge: <1809528678543235072.1724868615672@localhost>
 INFO  [main] d.s.l.DidSaslLocalTest: server complete: false
 DEBUG [main] d.s.l.DidSaslLocalTest: server challenge 1: [60, 49, 56, 48, 57, 53, 50, 56, 54, 55, 56, 53, 52, 51, 50, 51, 53, 48, 55, 50, 46, 49, 55, 50, 52, 56, 54, 56, 54, 49, 53, 54, 55, 50, 64, 108, 111, 99, 97, 108, 104, 111, 115, 116, 62]
