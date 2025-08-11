@@ -1,0 +1,27 @@
+package demo.sasl.local;
+
+import demo.sasl.client.SaslClientDemoDigestMD5;
+import demo.sasl.client.integration.UserIntegrationWithPassword;
+import demo.sasl.server.SaslServerDemoDigestMD5;
+import demo.sasl.server.integration.BackendIntegrationSimple;
+
+import javax.security.sasl.SaslClient;
+import javax.security.sasl.SaslException;
+import javax.security.sasl.SaslServer;
+
+public class SaslLocalDemoDigestMD5 extends SaslLocalDemo {
+
+    @Override
+    protected SaslServer createSaslServer() throws SaslException {
+        return new SaslServerDemoDigestMD5().createSaslServer(new BackendIntegrationSimple());
+    }
+
+    @Override
+    protected SaslClient createSaslClient() throws SaslException {
+        return new SaslClientDemoDigestMD5().createSaslClient(new UserIntegrationWithPassword());
+    }
+
+    public static void main(String[] args) throws SaslException {
+        new SaslLocalDemoDigestMD5().run();
+    }
+}
