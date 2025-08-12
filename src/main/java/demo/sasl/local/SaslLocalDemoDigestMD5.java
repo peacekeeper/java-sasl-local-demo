@@ -3,7 +3,7 @@ package demo.sasl.local;
 import demo.sasl.client.SaslClientDemoDigestMD5;
 import demo.sasl.client.integration.UserIntegrationWithPassword;
 import demo.sasl.server.SaslServerDemoDigestMD5;
-import demo.sasl.server.integration.BackendIntegrationSimple;
+import demo.sasl.server.integration.BackendIntegrationWithPassword;
 
 import javax.security.sasl.SaslClient;
 import javax.security.sasl.SaslException;
@@ -13,7 +13,7 @@ public class SaslLocalDemoDigestMD5 extends SaslLocalDemo {
 
     @Override
     protected SaslServer createSaslServer() throws SaslException {
-        return new SaslServerDemoDigestMD5().createSaslServer(new BackendIntegrationSimple());
+        return new SaslServerDemoDigestMD5().createSaslServer(new BackendIntegrationWithPassword());
     }
 
     @Override
