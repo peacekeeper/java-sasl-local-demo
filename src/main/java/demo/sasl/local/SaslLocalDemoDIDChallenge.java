@@ -3,9 +3,7 @@ package demo.sasl.local;
 import demo.sasl.client.SaslClientDemoDIDChallenge;
 import demo.sasl.client.integration.UserIntegrationWithDID;
 import demo.sasl.server.SaslServerDemoDIDChallenge;
-import demo.sasl.server.integration.BackendIntegrationNone;
 import demo.sasl.server.integration.BackendIntegrationWithDID;
-import demo.sasl.server.integration.BackendIntegrationWithPassword;
 import sasl.mechanism.did.DIDChallengeSaslProvider;
 
 import javax.security.sasl.SaslClient;
