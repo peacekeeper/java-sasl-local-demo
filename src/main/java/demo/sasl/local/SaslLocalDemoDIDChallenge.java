@@ -1,9 +1,9 @@
 package demo.sasl.local;
 
 import demo.sasl.client.SaslClientDemoDIDChallenge;
-import demo.sasl.client.integration.UserIntegrationWithDID;
+import demo.sasl.client.integration.UserIntegrationDemoDID;
 import demo.sasl.server.SaslServerDemoDIDChallenge;
-import demo.sasl.server.integration.BackendIntegrationWithDID;
+import demo.sasl.server.integration.BackendIntegrationDemoDID;
 import sasl.mechanism.did.DIDChallengeSaslProvider;
 
 import javax.security.sasl.SaslClient;
@@ -19,12 +19,12 @@ public class SaslLocalDemoDIDChallenge extends SaslLocalDemo{
 
     @Override
     protected SaslServer createSaslServer() throws SaslException {
-        return new SaslServerDemoDIDChallenge().createSaslServer(new BackendIntegrationWithDID());
+        return new SaslServerDemoDIDChallenge().createSaslServer(new BackendIntegrationDemoDID());
     }
 
     @Override
     protected SaslClient createSaslClient() throws SaslException {
-        return new SaslClientDemoDIDChallenge().createSaslClient(new UserIntegrationWithDID());
+        return new SaslClientDemoDIDChallenge().createSaslClient(new UserIntegrationDemoDID());
     }
 
     public static void main(String[] args) throws SaslException {
