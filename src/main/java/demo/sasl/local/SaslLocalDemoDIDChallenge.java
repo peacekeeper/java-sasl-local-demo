@@ -2,8 +2,10 @@ package demo.sasl.local;
 
 import demo.sasl.client.SaslClientDemoDIDChallenge;
 import demo.sasl.client.integration.UserIntegrationDemoDID;
+import demo.sasl.client.integration.UserIntegrationInteractive;
 import demo.sasl.server.SaslServerDemoDIDChallenge;
 import demo.sasl.server.integration.BackendIntegrationDemoDID;
+import demo.sasl.server.integration.BackendIntegrationInteractive;
 import sasl.mechanism.did.DIDChallengeSaslProvider;
 
 import javax.security.sasl.SaslClient;
@@ -17,17 +19,21 @@ public class SaslLocalDemoDIDChallenge extends SaslLocalDemo{
         Security.addProvider(new DIDChallengeSaslProvider());
     }
 
+    protected SaslLocalDemoDIDChallenge(boolean interactive) {
+        super(interactive);
+    }
+
     @Override
     protected SaslServer createSaslServer() throws SaslException {
-        return new SaslServerDemoDIDChallenge().createSaslServer(new BackendIntegrationDemoDID());
+        return new SaslServerDemoDIDChallenge().createSaslServer(this.isInteractive() ? new BackendIntegrationInteractive() : new BackendIntegrationDemoDID());
     }
 
     @Override
     protected SaslClient createSaslClient() throws SaslException {
-        return new SaslClientDemoDIDChallenge().createSaslClient(new UserIntegrationDemoDID());
+        return new SaslClientDemoDIDChallenge().createSaslClient(this.isInteractive() ? new UserIntegrationInteractive() : new UserIntegrationDemoDID());
     }
 
     public static void main(String[] args) throws SaslException {
-        new SaslLocalDemoDIDChallenge().run();
+        new SaslLocalDemoDIDChallenge(false).run();
     }
 }

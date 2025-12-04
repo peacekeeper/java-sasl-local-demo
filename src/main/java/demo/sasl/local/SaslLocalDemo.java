@@ -13,6 +13,8 @@ public abstract class SaslLocalDemo {
 
     private static final Logger log = LogManager.getLogger(SaslLocalDemo.class);
 
+    private final boolean interactive;
+
     static {
         SaslServerDebug.logSaslServerFactoriesAndMechanisms();
         SaslClientDebug.logSaslClientFactoriesAndMechanisms();
@@ -20,6 +22,10 @@ public abstract class SaslLocalDemo {
 
     protected abstract SaslServer createSaslServer() throws SaslException;
     protected abstract SaslClient createSaslClient() throws SaslException;
+
+    protected SaslLocalDemo(boolean interactive) {
+        this.interactive = interactive;
+    }
 
     protected void run() throws SaslException {
 
@@ -46,5 +52,9 @@ public abstract class SaslLocalDemo {
             }
         }
         log.info("SERVER authorizationId: {}", saslServer.getAuthorizationID());
+    }
+
+    public boolean isInteractive() {
+        return this.interactive;
     }
 }

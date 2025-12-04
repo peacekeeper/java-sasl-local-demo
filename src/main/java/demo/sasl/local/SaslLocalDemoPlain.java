@@ -11,6 +11,10 @@ import javax.security.sasl.SaslServer;
 
 public class SaslLocalDemoPlain extends SaslLocalDemo {
 
+    protected SaslLocalDemoPlain(boolean interactive) {
+        super(interactive);
+    }
+
     @Override
     protected SaslServer createSaslServer() throws SaslException {
         return new SaslServerDemoPlain().createSaslServer(new BackendIntegrationDemoUsername());
@@ -22,6 +26,6 @@ public class SaslLocalDemoPlain extends SaslLocalDemo {
     }
 
     public static void main(String[] args) throws SaslException {
-        new SaslLocalDemoPlain().run();
+        new SaslLocalDemoPlain(false).run();
     }
 }
