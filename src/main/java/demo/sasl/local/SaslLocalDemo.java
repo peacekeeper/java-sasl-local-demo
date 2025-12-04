@@ -27,7 +27,7 @@ public abstract class SaslLocalDemo {
         this.interactive = interactive;
     }
 
-    protected void run() throws SaslException {
+    protected void run() throws Exception {
 
         SaslServer saslServer = this.createSaslServer();
         SaslClient saslClient = this.createSaslClient();

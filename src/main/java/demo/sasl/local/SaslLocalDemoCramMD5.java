@@ -27,7 +27,7 @@ public class SaslLocalDemoCramMD5 extends SaslLocalDemo {
         return new SaslClientDemoCramMD5().createSaslClient(this.isInteractive() ? new UserIntegrationInteractive() : new UserIntegrationDemoUsername());
     }
 
-    public static void main(String[] args) throws SaslException {
+    public static void main(String[] args) throws Exception {
         new SaslLocalDemoCramMD5(false).run();
     }
 }

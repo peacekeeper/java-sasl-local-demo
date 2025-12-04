@@ -33,7 +33,7 @@ public class SaslLocalDemoDIDChallenge extends SaslLocalDemo{
         return new SaslClientDemoDIDChallenge().createSaslClient(this.isInteractive() ? new UserIntegrationInteractive() : new UserIntegrationDemoDID());
     }
 
-    public static void main(String[] args) throws SaslException {
+    public static void main(String[] args) throws Exception {
         new SaslLocalDemoDIDChallenge(false).run();
     }
 }

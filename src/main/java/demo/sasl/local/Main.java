@@ -1,12 +1,11 @@
 package demo.sasl.local;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("SASL mechanism? 1=DIGEST-MD5, 2=CRAM-MD5, 3=PLAIN, 4=DID-CHALLENGE");
         String lineSaslMechanism = bufferedReader.readLine();

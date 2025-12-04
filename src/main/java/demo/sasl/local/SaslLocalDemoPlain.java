@@ -25,7 +25,7 @@ public class SaslLocalDemoPlain extends SaslLocalDemo {
         return new SaslClientDemoPlain().createSaslClient(new UserIntegrationDemoUsername());
     }
 
-    public static void main(String[] args) throws SaslException {
+    public static void main(String[] args) throws Exception {
         new SaslLocalDemoPlain(false).run();
     }
 }
