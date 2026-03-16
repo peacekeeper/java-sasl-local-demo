@@ -6,7 +6,7 @@
 
     <groupId>com.danubetech</groupId>
     <artifactId>java-sasl-local-demo</artifactId>
-    <version>1.0</version>
+    <version>1.1-SNAPSHOT</version>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -41,12 +41,12 @@
         <dependency>
             <groupId>com.danubetech</groupId>
             <artifactId>java-sasl-server-demo</artifactId>
-            <version>1.0</version>
+            <version>1.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.danubetech</groupId>
             <artifactId>java-sasl-client-demo</artifactId>
-            <version>1.0</version>
+            <version>1.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
